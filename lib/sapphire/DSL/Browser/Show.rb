@@ -2,23 +2,24 @@ module Sapphire
   module DSL
     module Browser
       def Show(item)
-
+        sleep(0.5)
         if(item.is_a? Hash)
-           ExecuteHashAgainstControl(item) do |control, arg|
-            control.Text.should == arg
-           end
-          return
+          ExecuteHashAgainstControl(item) do |control, arg|
+            return control.Text == arg
+          end
         elsif(item.is_a? Symbol)
-          IsVisible(item).should == true
-          return
+          return IsVisible(item) == true
         elsif(item.is_a? Class)
-          @page = @browser.ShouldNavigateTo item
-          sleep(1)
+          temp, @page = @browser.ShouldNavigateTo item
+          sleep(1.5)
+          @page.Init
+          return temp
         else
           @page = item
+          @page.Init
+          return true
         end
 
-        @page.Init
       end
     end
   end

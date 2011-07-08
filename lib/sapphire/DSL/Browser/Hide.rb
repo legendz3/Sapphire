@@ -2,7 +2,7 @@ module Sapphire
   module DSL
     module Browser
       def Hide(args)
-        IsHidden(args).should == true
+        return IsHidden(args) == true
       end
     end
   end

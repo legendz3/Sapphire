@@ -2,7 +2,7 @@ module Sapphire
   module DSL
     module Browser
       def Should(item)
-        item
+        item.should == true
       end
     end
   end
