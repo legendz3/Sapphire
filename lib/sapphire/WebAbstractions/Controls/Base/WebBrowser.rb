@@ -25,6 +25,7 @@ module Sapphire
         end
 
         self.browser.get "https://" + nav.Url
+        nav.Init
         nav
       end
 
