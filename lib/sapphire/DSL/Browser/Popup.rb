@@ -1,11 +1,11 @@
 module Sapphire
   module DSL
-    module Popup
+    module Browser
       class Popup
         def Close
-          @browser.switch_to.window(@browser.window_handles.last)
-          @browser.close
-          @browser.switch_to.window(@browser.window_handles[0])
+          $browser.switch_to.window($browser.window_handles.last)
+          $browser.close
+          $browser.switch_to.window($browser.window_handles[0])
         end
       end
     end
