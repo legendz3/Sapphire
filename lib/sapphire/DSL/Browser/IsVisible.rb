@@ -8,7 +8,15 @@ module Sapphire
               begin
                 x = field[field_key].Find
                 if(x)
-                  return x.displayed?
+                  begin
+                    wait = Selenium::WebDriver::Wait.new(:timeout => 10)
+                    result = wait.until { y = x.displayed?
+                      y unless y == false
+                    }
+                    return result
+                  rescue
+                    return false
+                  end
                 end
               rescue
                return false
