@@ -3,7 +3,7 @@ module Sapphire
     module Browser
       def Error(hash)
        ExecuteHashAgainstControl(hash) do |control, arg|
-          control.Text.should == arg
+          return control.Text == arg
         end
       end
     end

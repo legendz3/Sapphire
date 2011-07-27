@@ -2,7 +2,7 @@ module Sapphire
   module DSL
     module Data
       def Exist(value)
-        value.should_not == nil
+        value != nil
       end
     end
   end
